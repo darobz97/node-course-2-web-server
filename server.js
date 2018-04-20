@@ -3,6 +3,17 @@ const hbs = require('hbs');
 const fs = require('fs');
 //This creates a new express app
 var app = express();
+//process.env stores all of our environment variables as key-value pairs. We look for PORT
+//Heroku creates that port. If it doesn't exist, we use the local port
+const port = process.env.PORT || 3000;
+
+/**
+git init to create the repository and the .git file
+git add to add a file
+git status to see what files are in the git repository
+git commit -m (alias:message, to keep track of all the changes) 'Initial commit'
+after git commit we have saved the project as it currently is
+**/
 
 hbs.registerPartials(__dirname + '/views/partials')
 
@@ -53,6 +64,6 @@ app.get('/bad', (req, res) => {
 })
 
 //This binds the app to a port on our machine
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
