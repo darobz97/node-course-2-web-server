@@ -57,13 +57,20 @@ app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
   });
-})
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Portfolio Page'
+  })
+});
 
 app.get('/bad', (req, res) => {
   errorMessage: "There was a problem"
-})
+});
 
 //This binds the app to a port on our machine
+//start the server in the port 3000 (or another one)
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
